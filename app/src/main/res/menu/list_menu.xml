@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_search"
+        android:icon="@drawable/ic_search"
+        android:iconTint="@color/white"
+        app:showAsAction="ifRoom"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        android:title="Поиск"/>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menuSortBy"
+            android:title="Сортировать:">
+            <menu>
+                <item
+                    android:id="@+id/menu_priority_high"
+                    android:title="Самое важное"/>
+                <item
+                    android:id="@+id/menu_priority_down"
+                    android:title="Самое неважное"/>
+            </menu>
+        </item>
+    </group>
+    <item
+        android:id="@+id/delete_all"
+        android:title="Удалить все"
+        app:showAsAction="never"/>
+</menu>

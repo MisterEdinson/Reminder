@@ -1,9 +1,7 @@
 package com.example.reminder.screens.list
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.reminder.R
@@ -23,6 +21,12 @@ class ListFragment : Fragment() {
         view.listLayout.setOnClickListener{
             findNavController().navigate(R.id.action_listFragment_to_updateFragment)
         }
+        setHasOptionsMenu(true)
         return view
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.list_menu,menu)
     }
 }
