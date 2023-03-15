@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Reminder</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="no_data">Пока нет ничего...</string>
+    <string name="edit_title">Введите название</string>
+    <string name="edit_desc">Описание новой задачи</string>
+    <string-array name="priority">
+        <item>Очень важно</item>
+        <item>Важно</item>
+        <item>Нужно</item>
+        <item>Желательно</item>
+    </string-array>
 </resources>
