@@ -15,10 +15,10 @@
             <menu>
                 <item
                     android:id="@+id/menu_priority_high"
-                    android:title="Самое важное"/>
+                    android:title="Сначала важное"/>
                 <item
                     android:id="@+id/menu_priority_down"
-                    android:title="Самое неважное"/>
+                    android:title="Сначала неважное"/>
             </menu>
         </item>
     </group>
