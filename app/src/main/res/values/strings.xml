@@ -5,6 +5,14 @@
     <string name="no_data">Пока нет ничего...</string>
     <string name="edit_title">Введите название</string>
     <string name="edit_desc">Описание новой задачи</string>
+    <string name="menu_id_add">Добавить</string>
+    <string name="list_menu_search">Поиск</string>
+    <string name="list_menu_sortedby">Сортировать:</string>
+    <string name="list_menu_sort_hight">Сначала важное</string>
+    <string name="list_menu_sort_low">Сначала неважное</string>
+    <string name="list_menu_del">Удалить все</string>
+    <string name="update_menu_save">Сохранить</string>
+    <string name="update_menu_del">Удалить</string>
     <string-array name="priority">
         <item>Очень важно</item>
         <item>Важно</item>

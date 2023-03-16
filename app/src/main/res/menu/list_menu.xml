@@ -7,23 +7,23 @@
         android:iconTint="@color/white"
         app:showAsAction="ifRoom"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
-        android:title="Поиск"/>
+        android:title="@string/list_menu_search"/>
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/menuSortBy"
-            android:title="Сортировать:">
+            android:title="@string/list_menu_sortedby">
             <menu>
                 <item
                     android:id="@+id/menu_priority_high"
-                    android:title="Сначала важное"/>
+                    android:title="@string/list_menu_sort_hight"/>
                 <item
                     android:id="@+id/menu_priority_down"
-                    android:title="Сначала неважное"/>
+                    android:title="@string/list_menu_sort_low"/>
             </menu>
         </item>
     </group>
     <item
         android:id="@+id/delete_all"
-        android:title="Удалить все"
+        android:title="@string/list_menu_del"
         app:showAsAction="never"/>
 </menu>

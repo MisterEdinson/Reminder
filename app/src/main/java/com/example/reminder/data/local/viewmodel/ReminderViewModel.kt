@@ -14,7 +14,7 @@ class ReminderViewModel(application: Application) : AndroidViewModel(application
     private val reminderDao = ReminderDB.getDataBase(application).ReminderDao()
     private val repository: Repository
 
-    private val getAll: LiveData<List<ReminderData>>
+    val getAll: LiveData<List<ReminderData>>
 
     init {
         repository = Repository(reminderDao)
@@ -24,6 +24,21 @@ class ReminderViewModel(application: Application) : AndroidViewModel(application
     fun insertData(reminderData: ReminderData){
         viewModelScope.launch(Dispatchers.IO) {
             repository.insertData(reminderData)
+        }
+    }
+    fun updateIt(reminderData: ReminderData){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateItem(reminderData)
+        }
+    }
+    fun deleteIt(reminderData: ReminderData){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteItem(reminderData)
+        }
+    }
+    fun deleteAll(){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAll()
         }
     }
 }

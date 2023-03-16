@@ -1,10 +1,7 @@
 package com.example.reminder.data.local.room
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.reminder.data.local.models.ReminderData
 
 @Dao
@@ -14,4 +11,13 @@ interface ReminderDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertData(ReminderData: ReminderData)
+
+    @Update
+    suspend fun updateRemind(reminderData: ReminderData)
+
+    @Delete
+    suspend fun deleteRemind(reminderData: ReminderData)
+
+    @Query("DELETE FROM reminder_base_room")
+    suspend fun deleteAll()
 }

@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_update"
-        android:title="Сохранить"
+        android:title="@string/update_menu_save"
         android:icon="@drawable/ic_save"
         android:iconTint="@color/white"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_del"
-        android:title="Удалить"
+        android:title="@string/update_menu_del"
         android:icon="@drawable/ic_del"
         android:iconTint="@color/white"
         app:showAsAction="never"/>
