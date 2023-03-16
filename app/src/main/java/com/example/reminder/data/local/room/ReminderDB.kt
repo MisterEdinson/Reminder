@@ -2,6 +2,7 @@ package com.example.reminder.data.local.room
 
 import android.content.Context
 import androidx.room.*
+import com.example.reminder.data.local.models.ReminderData
 
 @Database(entities = [ReminderData::class], version = 1, exportSchema = false)
 @TypeConverters(PriorityConverter::class)

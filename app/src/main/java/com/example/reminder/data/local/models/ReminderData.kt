@@ -1,8 +1,7 @@
-package com.example.reminder.data.local.room
+package com.example.reminder.data.local.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.reminder.data.local.Priority
 
 @Entity(tableName = "reminder_base_room")
 data class ReminderData(
