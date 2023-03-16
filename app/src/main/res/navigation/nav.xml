@@ -19,7 +19,11 @@
             app:popExitAnim="@anim/activ_anim_right" />
         <action
             android:id="@+id/action_listFragment_to_updateFragment"
-            app:destination="@id/updateFragment" />
+            app:destination="@id/updateFragment"
+            app:enterAnim="@anim/activ_anim_left"
+            app:exitAnim="@anim/new_anim_left"
+            app:popEnterAnim="@anim/new_anim_right"
+            app:popExitAnim="@anim/activ_anim_right" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
