@@ -1,11 +1,10 @@
 package com.example.reminder.data.local.room
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
 
 @Database(entities = [ReminderData::class], version = 1, exportSchema = false)
+@TypeConverters(PriorityConverter::class)
 abstract class ReminderDB : RoomDatabase() {
 
     abstract fun ReminderDao(): ReminderDao
