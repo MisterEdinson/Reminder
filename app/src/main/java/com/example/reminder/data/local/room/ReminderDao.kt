@@ -20,4 +20,7 @@ interface ReminderDao {
 
     @Query("DELETE FROM reminder_base_room")
     suspend fun deleteAll()
+
+    @Query("SELECT * FROM reminder_base_room WHERE title LIKE :searchTitle")
+    fun searchTitle(searchTitle: String): LiveData<List<ReminderData>>
 }

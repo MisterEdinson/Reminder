@@ -41,4 +41,9 @@ class ReminderViewModel(application: Application) : AndroidViewModel(application
             repository.deleteAll()
         }
     }
+    fun searchDB(searchTitle: String): LiveData<List<ReminderData>>{
+
+            return repository.searchTitle(searchTitle)
+
+    }
 }

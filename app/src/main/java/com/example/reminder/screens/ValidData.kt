@@ -7,26 +7,28 @@ import android.widget.AdapterView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import com.example.reminder.R
 import com.example.reminder.data.local.models.Priority
 import com.example.reminder.data.local.models.ReminderData
 
-class ValidData(application: Application) : AndroidViewModel(application) {
+class ValidData(application: Application) : AndroidViewModel(application), LifecycleOwner {
 
-    val nullData:MutableLiveData<Boolean> = MutableLiveData(true)
+    val emptyData:MutableLiveData<Boolean> = MutableLiveData(true)
 
-    fun checkNullData(reminderData: List<ReminderData>){
-        nullData.value = reminderData.isEmpty()
+    fun checkEmptyData(reminderData: List<ReminderData>){
+        emptyData.value = reminderData.isEmpty()
     }
 
     val colorListener: AdapterView.OnItemSelectedListener = object : AdapterView.OnItemSelectedListener {
         override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
             when(position){
-                0->{(parent?.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application,R.color.purple_200))}
-                1->{(parent?.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application,R.color.purple_500))}
-                2->{(parent?.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application,R.color.purple_700))}
-                3->{(parent?.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application,R.color.teal_200))}
+                0->{(parent?.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application,R.color.srong_hight))}
+                1->{(parent?.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application,R.color.hight))}
+                2->{(parent?.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application,R.color.medium))}
+                3->{(parent?.getChildAt(0) as TextView).setTextColor(ContextCompat.getColor(application,R.color.light))}
             }
         }
 
@@ -60,5 +62,9 @@ class ValidData(application: Application) : AndroidViewModel(application) {
             Priority.NEED -> 2
             Priority.LOW -> 3
         }
+    }
+
+    override fun getLifecycle(): Lifecycle {
+        TODO("Not yet implemented")
     }
 }

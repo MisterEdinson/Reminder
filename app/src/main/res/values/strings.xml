@@ -2,8 +2,8 @@
     <string name="app_name">Reminder</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="no_data">Пока нет ничего...</string>
-    <string name="edit_title">Введите название</string>
+    <string name="no_data">Пока нет ничего…</string>
+    <string name="edit_title">Новая задача</string>
     <string name="edit_desc">Описание новой задачи</string>
     <string name="menu_id_add">Добавить</string>
     <string name="list_menu_search">Поиск</string>

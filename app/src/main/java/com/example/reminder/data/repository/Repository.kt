@@ -22,4 +22,8 @@ class Repository(private val reminderDao: ReminderDao) {
     suspend fun deleteAll(){
         reminderDao.deleteAll()
     }
+
+    fun searchTitle(searchTitle: String):LiveData<List<ReminderData>>{
+        return reminderDao.searchTitle(searchTitle)
+    }
 }

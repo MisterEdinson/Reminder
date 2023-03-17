@@ -40,13 +40,25 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.AdapterViewHolder>() {
                 Priority.HIGHT -> colorPriority.setCardBackgroundColor(
                     ContextCompat.getColor(
                         context,
-                        R.color.black
+                        R.color.srong_hight
                     )
                 )
-                else -> colorPriority.setCardBackgroundColor(
+                Priority.MEDIUM -> colorPriority.setCardBackgroundColor(
                     ContextCompat.getColor(
                         context,
-                        R.color.purple_700
+                        R.color.hight
+                    )
+                )
+                Priority.NEED -> colorPriority.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.medium
+                    )
+                )
+                Priority.LOW -> colorPriority.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.light
                     )
                 )
             }
