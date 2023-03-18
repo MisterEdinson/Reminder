@@ -5,10 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.reminder.R
 import com.example.reminder.data.local.models.Priority
 import com.example.reminder.data.local.models.ReminderData
+import com.example.reminder.diffUtil.RemindDiffUtil
 import kotlinx.android.synthetic.main.item_remind.view.*
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.AdapterViewHolder>() {
@@ -70,8 +72,11 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.AdapterViewHolder>() {
     }
 
     fun setAdapterData(list: List<ReminderData>) {
+        val remindDiffUtil = RemindDiffUtil(remindList, list)
+        val remindDiffUtilResult = DiffUtil.calculateDiff(remindDiffUtil)
         remindList = list
-        notifyDataSetChanged()
+        remindDiffUtilResult.dispatchUpdatesTo(this)
+        //notifyDataSetChanged()
     }
 
 

@@ -8,7 +8,8 @@ import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.reminder.R
 import com.example.reminder.data.local.viewmodel.ReminderViewModel
@@ -51,11 +52,22 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
         val recyclerView = binding.rvList
         recyclerView.adapter = adapterList
         recyclerView.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
+        swipeDell(recyclerView)
         recyclerView.itemAnimator = SlideInUpAnimator().apply {
             addDuration = 300
         }
     }
-
+    private fun swipeDell(recyclerView: RecyclerView){
+        val swipeDelete = object: Swipe(){
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val itemDel = adapterList.remindList[viewHolder.adapterPosition]
+                viewModel.deleteIt(itemDel)
+                Toast.makeText(requireContext(), "Удалено : ${itemDel.title}",Toast.LENGTH_SHORT).show()
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(swipeDelete)
+        itemTouchHelper.attachToRecyclerView(recyclerView)
+    }
     @Deprecated("Deprecated in Java")
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.delete_all){
