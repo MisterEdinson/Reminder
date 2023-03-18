@@ -7,6 +7,8 @@ import com.example.reminder.data.local.models.ReminderData
 class Repository(private val reminderDao: ReminderDao) {
 
     val getAll: LiveData<List<ReminderData>> = reminderDao.getAll()
+    val sortHigh : LiveData<List<ReminderData>> = reminderDao.sortedHighPriority()
+    val sortLow : LiveData<List<ReminderData>> = reminderDao.sortedLowPriority()
 
     suspend fun insertData(reminderData: ReminderData){
         reminderDao.insertData(reminderData)

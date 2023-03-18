@@ -12,10 +12,18 @@ import kotlinx.coroutines.launch
 
 class ReminderViewModel(application: Application) : AndroidViewModel(application) {
     private val reminderDao = ReminderDB.getDataBase(application).ReminderDao()
-    private val repository: Repository = Repository(reminderDao)
+    private val repository: Repository
 
-    val getAll: LiveData<List<ReminderData>> = repository.getAll
+    val getAll: LiveData<List<ReminderData>>
+    val sortHigh: LiveData<List<ReminderData>>
+    val sortLow: LiveData<List<ReminderData>>
 
+    init{
+        repository  = Repository(reminderDao)
+        getAll = repository.getAll
+        sortHigh = repository.sortHigh
+        sortLow = repository.sortLow
+    }
     fun insertData(reminderData: ReminderData){
         viewModelScope.launch(Dispatchers.IO) {
             repository.insertData(reminderData)
@@ -37,8 +45,6 @@ class ReminderViewModel(application: Application) : AndroidViewModel(application
         }
     }
     fun searchDB(searchTitle: String): LiveData<List<ReminderData>>{
-
             return repository.searchTitle(searchTitle)
-
     }
 }

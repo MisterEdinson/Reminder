@@ -70,8 +70,10 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
     }
     @Deprecated("Deprecated in Java")
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.delete_all){
-            confirmAllDelete()
+        when(item.itemId ){
+            R.id.delete_all -> confirmAllDelete()
+            R.id.menu_priority_high -> viewModel.sortHigh.observe(this, Observer{adapterList.setAdapterData(it)})
+            R.id.menu_priority_low -> viewModel.sortLow.observe(this, Observer{adapterList.setAdapterData(it)})
         }
         return super.onOptionsItemSelected(item)
     }
