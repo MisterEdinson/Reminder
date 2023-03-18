@@ -11,6 +11,8 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/menuSortBy"
+            android:icon="@drawable/ic_sort"
+            app:showAsAction="ifRoom"
             android:title="@string/list_menu_sortedby">
             <menu>
                 <item
@@ -24,6 +26,7 @@
     </group>
     <item
         android:id="@+id/delete_all"
+        android:icon="@drawable/ic_del"
         android:title="@string/list_menu_del"
         app:showAsAction="never"/>
 </menu>
