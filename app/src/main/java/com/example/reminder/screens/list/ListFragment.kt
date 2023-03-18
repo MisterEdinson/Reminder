@@ -3,16 +3,18 @@ package com.example.reminder.screens.list
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
-import androidx.appcompat.widget.SearchView
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.reminder.R
 import com.example.reminder.data.local.viewmodel.ReminderViewModel
 import com.example.reminder.databinding.FragmentListBinding
 import com.example.reminder.screens.ValidData
+import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 import kotlinx.android.synthetic.main.fragment_list.*
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
@@ -48,7 +50,10 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
     private fun initRecyclerView() {
         val recyclerView = binding.rvList
         recyclerView.adapter = adapterList
-        recyclerView.layoutManager = GridLayoutManager(activity,2)
+        recyclerView.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
+        recyclerView.itemAnimator = SlideInUpAnimator().apply {
+            addDuration = 300
+        }
     }
 
     @Deprecated("Deprecated in Java")
